@@ -1,0 +1,22 @@
+body {
+  margin: auto;
+  width: 640px;
+  padding: 50px;
+  font-family: 'Arial', sans-serif;
+  color: #33475b;
+}
+
+/* Centered Image Code */
+
+.container {
+  max-width: 100%;
+  height: auto;
+  text-align: center; /* Centrar horizontalmente */
+}
+
+.centerImage {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Centra horizontalmente la imagen dentro de su contenedor */
+}

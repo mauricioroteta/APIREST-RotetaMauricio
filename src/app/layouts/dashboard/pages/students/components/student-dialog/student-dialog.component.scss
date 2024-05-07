@@ -1,0 +1,40 @@
+.form-container {
+  display: flex; /* Utiliza flexbox para controlar la disposición */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.input-field {
+  flex: 1; /* El campo de entrada tomará todo el espacio disponible */
+}
+
+.avatar-container {
+  margin-left: 16px; /* Ajusta el margen entre el campo de entrada y la imagen */
+}
+
+.contenedor-imagen {
+  position: relative;
+  margin-left: auto; /* Esto empujará el contenedor hacia la derecha */
+}
+
+
+
+.col-2 {
+  text-align: center;
+}
+
+
+.avatar-container {
+  width: 90px; /* Ajusta el ancho del contenedor según el tamaño de la imagen */
+  height: 90px; /* Ajusta el alto del contenedor según el tamaño de la imagen */
+  position: relative; /* Establece la posición relativa para que el sombreado absoluto se coloque correctamente */
+}
+
+.avatar {
+  width: 50%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: 50%; /* Ajusta el alto de la imagen al 100% del contenedor */
+  border-radius: 50%; /* Hace que la imagen sea redonda */
+  border: 2px solid rgb(25, 0, 255); /* Añade un borde blanco para mejorar la apariencia */
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar el ratón sobre la imagen */
+  box-shadow: 0 0 5px 5px rgba(10, 0, 255, 0.5);
+}
+

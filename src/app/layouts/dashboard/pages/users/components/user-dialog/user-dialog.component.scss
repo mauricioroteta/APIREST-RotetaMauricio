@@ -1,0 +1,36 @@
+.form-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-field {
+  flex: 1;
+}
+
+.avatar-container {
+  margin-left: 16px;
+}
+
+.contenedor-imagen {
+  position: relative;
+  margin-left: auto;
+}
+
+.col-2 {
+  text-align: center;
+}
+
+.avatar-container {
+  width: 90px;
+  height: 90px;
+  position: relative;
+}
+
+.avatar {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border: 2px solid rgb(25, 0, 255);
+  cursor: pointer;
+  box-shadow: 0 0 5px 5px rgba(10, 0, 255, 0.5);
+}

@@ -1,0 +1,82 @@
+[
+  {
+   "id": 1,
+   "curso": "Angular",
+   "Categoria": "Programacion y desarrollo",
+   "NroClases": 40,
+   "dificultad": "media",
+   "descripcion": ""
+  },
+  {
+   "id": 2,
+   "curso": "Python",
+   "Categoria": "Programacion y desarrollo",
+   "NroClases": 40,
+   "dificultad": "media",
+   "descripcion": "34343"
+  },
+  {
+   "id": 3,
+   "curso": "JavaScript",
+   "Categoria": "Programacion y desarrollo",
+   "NroClases": 35,
+   "dificultad": "media",
+   "descripcion": "43433"
+  },
+  {
+   "id": 4,
+   "curso": "Next.js",
+   "Categoria": "Programacion y desarrollo",
+   "NroClases": 35,
+   "dificultad": "alta",
+   "descripcion": "4343"
+  },
+  {
+   "id": 5,
+   "curso": "Power BI",
+   "Categoria": "Data",
+   "NroClases": 25,
+   "dificultad": "baja",
+   "descripcion": "4343"
+  },
+  {
+   "id": 6,
+   "curso": "Business Analytics",
+   "Categoria": "Data",
+   "NroClases": 80,
+   "dificultad": "alta",
+   "descripcion": "4343"
+  },
+  {
+   "id": 7,
+   "curso": "Canva",
+   "Categoria": "Diseño UX\/UI",
+   "NroClases": 30,
+   "dificultad": "baja",
+   "descripcion": "4343"
+  },
+  {
+   "id": 8,
+   "curso": "Photoshop e Illustrator",
+   "Categoria": "Diseño UX\/UI",
+   "NroClases": 35,
+   "dificultad": "media",
+   "descripcion": "4343"
+  },
+  {
+   "id": 9,
+   "curso": "Fundamentos del Diseño Gráfico",
+   "Categoria": "Diseño UX\/UI",
+   "NroClases": 30,
+   "dificultad": "baja",
+   "descripcion": "43"
+  },
+  {
+   "id": 10,
+   "curso": "Product Manager",
+   "Categoria": "Producto",
+   "NroClases": 30,
+   "dificultad": "baja",
+   "descripcion": "4343"
+  }
+ ]

@@ -1,0 +1,47 @@
+<br>
+<h1></h1>
+<div class="text-center card container col-md-3">
+    <div class="mt-5 mb-5">
+        <img src="../../../assets/coderhouse.jpeg" alt="Logo Side" class="mb-4 imglogo"/>
+        <h1 class="h3 mb-3 fw-normal">Log In</h1>
+        <form (ngSubmit)="login()">
+        <div class="form-floating">
+            <input
+              matInput
+              type="text" class="form-control" id="floatingInput" placeholder="Usuario"
+              name="username"
+              [(ngModel)]="username"
+              required
+              class="form-control" id="floatingInput"
+            />
+            <label for="floatingInput">Usuario</label>
+        </div>
+        <div class="form-floating mt-1">
+            <input
+              matInput
+              type="password" class="form-control" id="floatingPassword" placeholder="Password"
+              name="password"
+              [(ngModel)]="password"
+              required
+            />
+            <label for="floatingPassword">Password</label>
+        </div>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <div class="or-container">
+            <div class="line-separator"></div>
+            <div class="or-label">or</div>
+            <div class="line-separator"></div>
+        </div>
+        <div class="row">
+            <button class="btn btn-lg btn-google btn-block text-uppercase btn-outline">
+                <img src="https://img.icons8.com/color/22/000000/google-logo.png"> Sing in Google
+            </button>
+        </div>
+      </form>
+    </div>
+</div>

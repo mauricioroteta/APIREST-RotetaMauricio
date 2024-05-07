@@ -1,0 +1,58 @@
+
+<div mat-dialog-content>
+  <h2 mat-dialog-title>CLASES</h2>
+ <form [formGroup]="ClaseForm">
+
+  <div class="row">
+    <div class="col-12">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Nombre Curso</mat-label>
+        <input formControlName="NombreCurso" matInput />
+        <mat-hint>Debe ingresar un valor</mat-hint>
+        <mat-error>{{ 
+          NombreCursoControl?.errors | formFieldValidationErrors
+        }}</mat-error>
+      </mat-form-field>
+    </div>
+
+  <div class="col-4">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>fecha Inicio</mat-label>
+      <input formControlName="fechaIni" matInput />
+      <mat-hint>Debe ingresar un valor</mat-hint>
+      <mat-error>{{
+        fechaIniControl?.errors | formFieldValidationErrors
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="col-4">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>hora Inicio</mat-label>
+      <input formControlName="horaIni" matInput placeholder="">
+      <mat-hint>Debe ingresar un valor</mat-hint>
+      <mat-error>{{
+        horaIniControl?.errors | formFieldValidationErrors
+      }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="col-4">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label>hora Fin</mat-label>
+      <input formControlName="horaFin" matInput placeholder="">
+      <mat-hint>Debe ingresar un valor</mat-hint>
+      <mat-error>{{
+        horaFinControl?.errors | formFieldValidationErrors
+      }}</mat-error>
+    </mat-form-field>
+
+  </div>
+</div>
+    </form>
+</div>
+
+<div class="d-flex justify-content-end" mat-dialog-actions>
+  <button mat-dialog-close mat-button>Cancelar</button>
+  <button (click)="onSave()" mat-button [disabled]="!isAdmin">Guardar</button>
+</div>

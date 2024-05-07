@@ -1,0 +1,114 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<ng-container *ngIf="!loading">
+<div class="d-flex justify-content-end mb-3">
+    <button (click)="openDialog()" mat-button color="primary" [disabled]="!isAdmin">
+      Crear usuario
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="getPaginatedusers()" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- No. Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef>userName</th>
+      <td mat-cell *matCellDef="let element">{{ element.userName }}</td>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+    </ng-container>
+
+    <!-- Apellido Column -->
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef>Apellido</th>
+      <td mat-cell *matCellDef="let element">{{ element.apellido }}</td>
+    </ng-container>
+
+    <!-- telefono Column -->
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef>telefono</th>
+      <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <!-- rol Column -->
+    <ng-container matColumnDef="rol">
+      <th mat-header-cell *matHeaderCellDef>rol</th>
+      <td mat-cell *matCellDef="let element">{{ element.rol }}</td>
+    </ng-container>
+
+    <!-- activo Column -->
+    <ng-container matColumnDef="activo">
+      <th mat-header-cell *matHeaderCellDef>Activo</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *ngIf="element.activo">check_circle</mat-icon>
+        <mat-icon *ngIf="!element.activo">cancel</mat-icon>
+      </td>
+    </ng-container>
+
+
+    <!-- avatar Column -->
+    <ng-container matColumnDef="avatar">
+      <th mat-header-cell *matHeaderCellDef>Avatar</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.avatar" alt="Avatar" style="width: 50px; height: 50px;">
+      </td>
+    </ng-container>
+
+    <!-- Acciones Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="openDialog(element)" mat-icon-button color="primary">
+          <mat-icon *ngIf="isAdmin; else notAdmin">edit</mat-icon>
+          <ng-template #notAdmin>
+            <mat-icon>visibility</mat-icon>
+          </ng-template>
+        </button>
+
+        <!-- *ngIf="userRoleSession === 'ADMIN'" -->
+        <button (click)="onDeleteUser(element.id)" mat-icon-button color="warn" [disabled]="!isAdmin">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+
+  <div class="pagination">
+    <button [disabled]="p === 1" (click)="goToFirstPage()" mat-icon-button color="primary">
+      <mat-icon>first_page</mat-icon>
+    </button>
+    <button [disabled]="p === 1" (click)="p = p - 1" mat-icon-button color="primary">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <ng-container *ngFor="let page of getPageNumbers()">
+      <button [disabled]="p === page" (click)="p = page" mat-button color="primary">{{ page }}</button>
+    </ng-container>
+    <button [disabled]="getPaginatedusers().length < pageSize" (click)="p = p + 1" mat-icon-button color="primary">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <button [disabled]="p === getLastPage()" (click)="goToLastPage()" mat-icon-button color="primary">
+      <mat-icon>last_page</mat-icon>
+    </button>
+  </div>
+</ng-container>

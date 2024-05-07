@@ -1,0 +1,113 @@
+<div *ngIf="isAuthenticated">
+<mat-drawer-container class="example-container" autosize>
+    <!-- SIDEBAR -->
+    <mat-drawer
+      [opened]="!isMobile()"
+      #drawer
+      class="example-sidenav"
+      [mode]="isMobile() ? 'over' : 'side'"
+    >
+    <img src="../../../assets/coderhouse.jpeg" alt="Logo" class="logo" *ngIf="!isMobile()">
+    <div class="example-button-row d-flex row col-12">
+
+      <button mat-raised-button routerLink="" class="boton-con-efecto" *ngIf="!isMobile()">
+        <mat-icon>home</mat-icon> <!-- Icono de inicio -->
+        Inicio
+      </button>
+      <button mat-raised-button routerLink="" class="boton-con-efecto" *ngIf="isMobile()">
+        <mat-icon>home</mat-icon> <!-- Icono de inicio -->
+      </button>
+
+      <button mat-raised-button routerLink="/students" class="boton-con-efecto" *ngIf="!isMobile()">
+        <mat-icon>school</mat-icon>
+        Alumnos
+      </button>
+      <button mat-raised-button routerLink="/students" class="boton-con-efecto" *ngIf="isMobile()">
+        <mat-icon>school</mat-icon>
+      </button>
+
+      <button mat-raised-button routerLink="/cursos" class="boton-con-efecto" *ngIf="!isMobile()">
+        <mat-icon>book</mat-icon>
+        Cursos
+      </button>
+      <button mat-raised-button routerLink="/cursos" class="boton-con-efecto" *ngIf="isMobile()">
+        <mat-icon>book</mat-icon>
+      </button>
+
+      <button mat-raised-button routerLink="/clases" class="boton-con-efecto" *ngIf="!isMobile()">
+        <mat-icon>book</mat-icon>
+        Clases
+      </button>
+      <button mat-raised-button routerLink="/clases" class="boton-con-efecto" *ngIf="isMobile()">
+        <mat-icon>book</mat-icon>
+      </button>
+
+      <button mat-raised-button routerLink="/users" class="boton-con-efecto" *ngIf="!isMobile()">
+        <mat-icon>people</mat-icon>
+        Usuarios
+      </button>
+      <button mat-raised-button routerLink="/users" class="boton-con-efecto" *ngIf="isMobile()">
+        <mat-icon>people</mat-icon>
+      </button>
+
+    </div>
+
+    </mat-drawer>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENIDO A LA DERECHA DEL SIDEBAR -->
+    <div class="example-sidenav-content">
+      <!-- TOOLBAR SUPERIOR -->
+      <mat-toolbar color="primary">
+        <button
+          (click)="drawer.toggle()"
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span appTamano20>TechSchool {{ titulo }}</span>
+
+        <div class="contenedor-imagen" [matMenuTriggerFor]="menuUsuario">
+        <div *ngIf="isAuthenticated">
+          <div *ngIf="userData$ | async as userData">
+            <img class="imagen-usuario" src="https://cdn-icons-png.flaticon.com/128/843/843260.png" alt="Usuario"/>
+          </div>
+        </div>
+          <!-- <div *ngIf="userData$ | async as userData">
+            <div *ngIf="userData.avatar"></div>
+              <img class="imagen-usuario" [src]="userData.avatar" alt="Usuario"/>
+            </div>
+          </div> -->
+
+         <mat-menu #menuUsuario="matMenu">
+            <!-- <div class="usuario-info">
+                  <span>{{ userName }} ( {{ rol }} )</span>
+            </div> -->
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>person_edit</mat-icon> <!-- Icono para cerrar sesión -->
+              <span>Ver Perfil</span> <!-- Texto del botón -->
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon> <!-- Icono para cerrar sesión -->
+              <span>Cerrar sesión</span> <!-- Texto del botón -->
+            </button>
+          </mat-menu>
+        </div>
+      </mat-toolbar>
+      <main style="padding: 1rem">
+        <router-outlet />
+      </main>
+
+      <!-- TOOLBAR SUPERIOR -->
+    </div>
+    <!-- CONTENIDO A LA DERECHA DEL SIDEBAR -->
+  </mat-drawer-container>
+</div>
+
+<div *ngIf="!isAuthenticated">
+  <app-login></app-login>
+</div>

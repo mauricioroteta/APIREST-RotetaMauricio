@@ -1,0 +1,487 @@
+{
+  "usuarios": [
+    {
+      "userName": "maurote",
+      "nombre": "Mauricio",
+      "apellido": "Roteta",
+      "telefono": "2983507502",
+      "email": "mauricioroteta@gmail.com.ar",
+      "activo": true,
+      "avatar": "https://cdn-icons-png.flaticon.com/128/3682/3682356.png",
+      "rol": "user",
+      "password": "123456",
+      "id": "1"
+    },
+    {
+      "id": "2"
+    },
+    {
+      "id": "2",
+      "userName": "admin",
+      "nombre": "Administrator",
+      "apellido": "User",
+      "telefono": "2983507503",
+      "email": "invitado@gmail.com",
+      "activo": true,
+      "avatar": "https://cdn-icons-png.flaticon.com/128/843/843260.png",
+      "rol": "admin",
+      "password": "admin"
+    }
+  ],
+  "alumnos": [
+    {
+      "id": "1",
+      "nombre": "Dov",
+      "apellido": "Glendzer",
+      "telefono": "2983507503",
+      "email": "dglendzer0@gmpg.org",
+      "activo": false,
+      "avatar": "https://robohash.org/utestsint.png?size=50x50&set=set1",
+      "cursos": [
+        {
+          "id": 1,
+          "clasesPresente": 5,
+          "puntos": 60
+        },
+        {
+          "id": 2,
+          "clasesPresente": 1,
+          "puntos": 30
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nombre": "Clementius",
+      "apellido": "Norville",
+      "telefono": "2983507503",
+      "email": "cnorville1@answers.com",
+      "activo": true,
+      "avatar": "https://robohash.org/providentverocorrupti.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "3",
+      "nombre": "Grata",
+      "apellido": "Kilfether",
+      "telefono": "2983507503",
+      "email": "gkilfether2@reference.com",
+      "activo": true,
+      "avatar": "https://robohash.org/experspiciatisvoluptates.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "4",
+      "nombre": "Neilla",
+      "apellido": "Bubeer",
+      "telefono": "2983507503",
+      "email": "nbubeer3@wsj.com",
+      "activo": true,
+      "avatar": "https://robohash.org/quamcumvoluptates.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "5",
+      "nombre": "Carolin",
+      "apellido": "Mohammad",
+      "telefono": "2983507503",
+      "email": "cmohammad4@ebay.co.uk",
+      "activo": true,
+      "avatar": "https://robohash.org/estpossimusdolorem.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "6",
+      "nombre": "Margette",
+      "apellido": "Feilden",
+      "telefono": "2983507503",
+      "email": "mfeilden5@dailymotion.com",
+      "activo": false,
+      "avatar": "https://robohash.org/occaecatietomnis.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "7",
+      "nombre": "Morty",
+      "apellido": "Filippello",
+      "telefono": "2983507503",
+      "email": "mfilippello6@hao123.com",
+      "activo": true,
+      "avatar": "https://robohash.org/iddoloremet.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "8",
+      "nombre": "Sandi",
+      "apellido": "Leeburn",
+      "telefono": "2983507503",
+      "email": "sleeburn7@upenn.edu",
+      "activo": true,
+      "avatar": "https://robohash.org/velpossimusenim.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "9",
+      "nombre": "Dagmar",
+      "apellido": "Clemendet",
+      "telefono": "2983507503",
+      "email": "dclemendet8@rakuten.co.jp",
+      "activo": true,
+      "avatar": "https://robohash.org/possimusnisimolestiae.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "10",
+      "nombre": "Millisent",
+      "apellido": "Dufty",
+      "telefono": "2983507503",
+      "email": "mdufty9@bloglines.com",
+      "activo": true,
+      "avatar": "https://robohash.org/autevenietrerum.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "11",
+      "nombre": "Liva",
+      "apellido": "Georgi",
+      "telefono": "2983507503",
+      "email": "lgeorgia@shinystat.com",
+      "activo": true,
+      "avatar": "https://robohash.org/voluptatesexplicaboquis.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "12",
+      "nombre": "Inigo",
+      "apellido": "Houndsom",
+      "telefono": "2983507503",
+      "email": "ihoundsomb@gizmodo.com",
+      "activo": false,
+      "avatar": "https://robohash.org/perferendisametnulla.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "13",
+      "nombre": "Sandye",
+      "apellido": "Bateup",
+      "telefono": "2983507503",
+      "email": "sbateupc@theguardian.com",
+      "activo": true,
+      "avatar": "https://robohash.org/namadipisciporro.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "14",
+      "nombre": "Ernesta",
+      "apellido": "Spurge",
+      "telefono": "2983507503",
+      "email": "espurged@typepad.com",
+      "activo": true,
+      "avatar": "https://robohash.org/excepturiquiadipisci.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "15",
+      "nombre": "Derrek",
+      "apellido": "Dood",
+      "telefono": "2983507503",
+      "email": "ddoode@feedburner.com",
+      "activo": true,
+      "avatar": "https://robohash.org/voluptasquaerattenetur.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "16",
+      "nombre": "Lowe",
+      "apellido": "Hadeke",
+      "telefono": "2983507503",
+      "email": "lhadekef@geocities.com",
+      "activo": false,
+      "avatar": "https://robohash.org/aliasaliquamarchitecto.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "17",
+      "nombre": "Sarena",
+      "apellido": "Arunowicz",
+      "telefono": "2983507503",
+      "email": "sarunowiczg@economist.com",
+      "activo": true,
+      "avatar": "https://robohash.org/incidunteta.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "18",
+      "nombre": "Kaitlynn",
+      "apellido": "Duinbleton",
+      "telefono": "2983507503",
+      "email": "kduinbletonh@eepurl.com",
+      "activo": true,
+      "avatar": "https://robohash.org/etbeataesunt.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "19",
+      "nombre": "Zulema",
+      "apellido": "Backhouse",
+      "telefono": "2983507503",
+      "email": "zbackhousei@xrea.com",
+      "activo": true,
+      "avatar": "https://robohash.org/rerumeaut.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "20",
+      "nombre": "Eldin",
+      "apellido": "Longhirst",
+      "telefono": "2983507503",
+      "email": "elonghirstj@census.gov",
+      "activo": true,
+      "avatar": "https://robohash.org/molestiasnemodolorem.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "21",
+      "nombre": "Gilbertina",
+      "apellido": "Dungee",
+      "telefono": "2983507503",
+      "email": "gdungeek@home.pl",
+      "activo": false,
+      "avatar": "https://robohash.org/rerumdelenitiipsam.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "22",
+      "nombre": "Shaylah",
+      "apellido": "Pincott",
+      "telefono": "2983507503",
+      "email": "spincottl@princeton.edu",
+      "activo": true,
+      "avatar": "https://robohash.org/saepeerrordoloremque.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "23",
+      "nombre": "Barry",
+      "apellido": "Robens",
+      "telefono": "2983507503",
+      "email": "brobensm@drupal.org",
+      "activo": true,
+      "avatar": "https://robohash.org/nemopraesentiumanimi.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "24",
+      "nombre": "Tiler",
+      "apellido": "Dangl",
+      "telefono": "2983507503",
+      "email": "tdangln@biglobe.ne.jp",
+      "activo": true,
+      "avatar": "https://robohash.org/excepturiharumipsam.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "25",
+      "nombre": "Cornie",
+      "apellido": "McEntegart",
+      "telefono": "2983507503",
+      "email": "cmcentegarto@epa.gov",
+      "activo": true,
+      "avatar": "https://robohash.org/odiodoloremqui.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "26",
+      "nombre": "Lisette",
+      "apellido": "Smalridge",
+      "telefono": "2983507503",
+      "email": "lsmalridgep@seattletimes.com",
+      "activo": false,
+      "avatar": "https://robohash.org/temporaaliasesse.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "27",
+      "nombre": "Daven",
+      "apellido": "Desquesnes",
+      "telefono": "2983507503",
+      "email": "ddesquesnesq@skyrock.com",
+      "activo": true,
+      "avatar": "https://robohash.org/molestiaseiuseos.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "28",
+      "nombre": "Karylin",
+      "apellido": "Nairy",
+      "telefono": "2983507503",
+      "email": "knairyr@cbslocal.com",
+      "activo": false,
+      "avatar": "https://robohash.org/accusantiumreiciendisodio.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "29",
+      "nombre": "Diana",
+      "apellido": "Greenig",
+      "telefono": "2983507503",
+      "email": "dgreenigs@youtu.be",
+      "activo": true,
+      "avatar": "https://robohash.org/dignissimosautemex.png?size=50x50&set=set1",
+      "cursos": {}
+    },
+    {
+      "id": "30",
+      "nombre": "Hildegarde",
+      "apellido": "Gianinotti",
+      "telefono": "2983507503",
+      "email": "hgianinottit@exblog.jp",
+      "activo": true,
+      "avatar": "https://robohash.org/aliquidvoluptatemet.png?size=50x50&set=set1",
+      "cursos": {}
+    }
+  ],
+  "cursos": [
+    {
+      "curso": "Angular",
+      "descripcion": "Curso nivel medio de Angular",
+      "Categoria": "Programacion y desarrollo",
+      "NroClases": 40,
+      "dificultad": "media",
+      "id": "1"
+    },
+    {
+      "curso": "Python",
+      "descripcion": "34343",
+      "Categoria": "Programacion y desarrollo",
+      "NroClases": 40,
+      "dificultad": "media",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "curso": "JavaScript",
+      "Categoria": "Programacion y desarrollo",
+      "NroClases": 35,
+      "dificultad": "media",
+      "descripcion": "43433"
+    },
+    {
+      "id": "4",
+      "curso": "Next.js",
+      "Categoria": "Programacion y desarrollo",
+      "NroClases": 35,
+      "dificultad": "alta",
+      "descripcion": "4343"
+    },
+    {
+      "id": "5",
+      "curso": "Power BI",
+      "Categoria": "Data",
+      "NroClases": 25,
+      "dificultad": "baja",
+      "descripcion": "4343"
+    },
+    {
+      "id": "6",
+      "curso": "Business Analytics",
+      "Categoria": "Data",
+      "NroClases": 80,
+      "dificultad": "alta",
+      "descripcion": "4343"
+    },
+    {
+      "id": "7",
+      "curso": "Canva",
+      "Categoria": "Diseño UX/UI",
+      "NroClases": 30,
+      "dificultad": "baja",
+      "descripcion": "4343"
+    },
+    {
+      "id": "8",
+      "curso": "Photoshop e Illustrator",
+      "Categoria": "Diseño UX/UI",
+      "NroClases": 35,
+      "dificultad": "media",
+      "descripcion": "4343"
+    },
+    {
+      "id": "9",
+      "curso": "Fundamentos del Diseño Gráfico",
+      "Categoria": "Diseño UX/UI",
+      "NroClases": 30,
+      "dificultad": "baja",
+      "descripcion": "43"
+    },
+    {
+      "id": "10",
+      "curso": "Product Manager",
+      "Categoria": "Producto",
+      "NroClases": 30,
+      "dificultad": "baja",
+      "descripcion": "4343"
+    }
+  ],
+  "clases": [
+    {
+      "id": "1",
+      "idCurso": 1,
+      "fechaIni": "2024-06-01T00:00:00Z",
+      "horaIni": "20:30",
+      "horaFin": "22:30"
+    },
+    {
+      "id": "2",
+      "idCurso": 1,
+      "fechaIni": "2024-06-15T00:00:00Z",
+      "horaIni": "20:30",
+      "horaFin": "22:30"
+    },
+    {
+      "id": "3",
+      "idCurso": 2,
+      "fechaIni": "2024-06-02T00:00:00Z",
+      "horaIni": "21:30",
+      "horaFin": "23:30"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "userName": "maurote",
+      "nombre": "Mauricio",
+      "apellido": "Roteta",
+      "telefono": "2983507502",
+      "email": "mauricioroteta@gmail.com.ar",
+      "activo": true,
+      "avatar": "https://cdn-icons-png.flaticon.com/128/3682/3682356.png",
+      "rol": "user",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "userName": "invitado",
+      "nombre": "Invitado",
+      "apellido": "NN",
+      "telefono": "2983507503",
+      "email": "invitado@gmail.com",
+      "activo": true,
+      "avatar": "https://cdn-icons-png.flaticon.com/128/16/16612.png",
+      "rol": "user",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "userName": "admin",
+      "nombre": "Administrator",
+      "apellido": "User",
+      "telefono": "2983507s503",
+      "email": "invitado@gmail.com",
+      "activo": true,
+      "avatar": "https://cdn-icons-png.flaticon.com/128/843/843260.png",
+      "rol": "admin",
+      "password": "admin"
+    }
+  ]
+}
