@@ -42,13 +42,13 @@
         <mat-icon>book</mat-icon>
       </button>
 
-      <button mat-raised-button routerLink="/users" class="boton-con-efecto" *ngIf="!isMobile()">
+      <button mat-raised-button routerLink="/users" id="botonUsuarios" class="boton-con-efecto" *ngIf="!isMobile() && isAdmin">
         <mat-icon>people</mat-icon>
         Usuarios
       </button>
-      <button mat-raised-button routerLink="/users" class="boton-con-efecto" *ngIf="isMobile()">
-        <mat-icon>people</mat-icon>
-      </button>
+        <button mat-raised-button routerLink="/users"  id="botonUsuarios" class="boton-con-efecto" *ngIf="isMobile() && isAdmin">
+          <mat-icon>people</mat-icon>
+        </button>
 
     </div>
 
@@ -72,19 +72,14 @@
         <div class="contenedor-imagen" [matMenuTriggerFor]="menuUsuario">
         <div *ngIf="isAuthenticated">
           <div *ngIf="userData$ | async as userData">
-            <img class="imagen-usuario" src="https://cdn-icons-png.flaticon.com/128/843/843260.png" alt="Usuario"/>
+            <img class="imagen-usuario" [src]="userData.avatar" alt="Usuario"/>
           </div>
         </div>
-          <!-- <div *ngIf="userData$ | async as userData">
-            <div *ngIf="userData.avatar"></div>
-              <img class="imagen-usuario" [src]="userData.avatar" alt="Usuario"/>
-            </div>
-          </div> -->
 
          <mat-menu #menuUsuario="matMenu">
-            <!-- <div class="usuario-info">
-                  <span>{{ userName }} ( {{ rol }} )</span>
-            </div> -->
+          <div *ngIf="userData$ | async as userData">
+            <p class="usuario-info">{{ userData.nombreCompleto }} (Rol {{ userData.rol }})</p>
+          </div>
             <mat-divider></mat-divider>
             <button mat-menu-item (click)="logout()">
               <mat-icon>person_edit</mat-icon> <!-- Icono para cerrar sesión -->
@@ -96,6 +91,7 @@
               <span>Cerrar sesión</span> <!-- Texto del botón -->
             </button>
           </mat-menu>
+
         </div>
       </mat-toolbar>
       <main style="padding: 1rem">

@@ -9,7 +9,7 @@ import { LoginModule } from '../login/login.module';
 
 interface UserData {
   usuario: string;
-  rol: UsuarioRol;
+  rol: string;
   avatar: string;
   nombreCompleto: string;
   isAdmin: boolean;
@@ -58,6 +58,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.userData = this.authService.getUserData().subscribe((userData) => {
       if (userData.rol === 'admin') {
         this.isAdmin = true;
+      } else {
+        this.isAdmin = false;
       }
     });
     this.router.events.pipe(
@@ -68,7 +70,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         return route;
       }),
       filter(route => route.outlet === 'primary'),
-      map(route => route.snapshot.data as { titulo: string }) // Aquí especificamos el tipo de data
+      map(route => route.snapshot.data as { titulo: string })
     ).subscribe(data => {
       this.titulo = data.titulo;
     });

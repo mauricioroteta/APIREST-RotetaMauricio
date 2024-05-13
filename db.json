@@ -26,6 +26,18 @@
       "avatar": "https://cdn-icons-png.flaticon.com/128/843/843260.png",
       "rol": "admin",
       "password": "admin"
+    },
+    {
+      "id": "2",
+      "userName": "user",
+      "nombre": "Usuario",
+      "apellido": "test",
+      "telefono": "2983507503",
+      "email": "test@gmail.com",
+      "activo": true,
+      "avatar": "https://robohash.org/providentverocorrupti.png?size=50x50&set=set1",
+      "rol": "user",
+      "password": "123456"
     }
   ],
   "alumnos": [
