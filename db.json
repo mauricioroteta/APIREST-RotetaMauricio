@@ -49,7 +49,7 @@
       "email": "dglendzer0@gmpg.org",
       "activo": false,
       "avatar": "https://robohash.org/utestsint.png?size=50x50&set=set1",
-      "cursos": [
+      "clases": [
         {
           "id": 1,
           "clasesPresente": 5,
@@ -70,7 +70,7 @@
       "email": "cnorville1@answers.com",
       "activo": true,
       "avatar": "https://robohash.org/providentverocorrupti.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "3",
@@ -80,7 +80,7 @@
       "email": "gkilfether2@reference.com",
       "activo": true,
       "avatar": "https://robohash.org/experspiciatisvoluptates.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "4",
@@ -90,7 +90,7 @@
       "email": "nbubeer3@wsj.com",
       "activo": true,
       "avatar": "https://robohash.org/quamcumvoluptates.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "5",
@@ -100,7 +100,7 @@
       "email": "cmohammad4@ebay.co.uk",
       "activo": true,
       "avatar": "https://robohash.org/estpossimusdolorem.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "6",
@@ -110,7 +110,7 @@
       "email": "mfeilden5@dailymotion.com",
       "activo": false,
       "avatar": "https://robohash.org/occaecatietomnis.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "7",
@@ -120,7 +120,7 @@
       "email": "mfilippello6@hao123.com",
       "activo": true,
       "avatar": "https://robohash.org/iddoloremet.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "8",
@@ -130,7 +130,7 @@
       "email": "sleeburn7@upenn.edu",
       "activo": true,
       "avatar": "https://robohash.org/velpossimusenim.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "9",
@@ -140,7 +140,7 @@
       "email": "dclemendet8@rakuten.co.jp",
       "activo": true,
       "avatar": "https://robohash.org/possimusnisimolestiae.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "10",
@@ -150,7 +150,7 @@
       "email": "mdufty9@bloglines.com",
       "activo": true,
       "avatar": "https://robohash.org/autevenietrerum.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "11",
@@ -160,7 +160,7 @@
       "email": "lgeorgia@shinystat.com",
       "activo": true,
       "avatar": "https://robohash.org/voluptatesexplicaboquis.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "12",
@@ -170,7 +170,7 @@
       "email": "ihoundsomb@gizmodo.com",
       "activo": false,
       "avatar": "https://robohash.org/perferendisametnulla.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "13",
@@ -180,7 +180,7 @@
       "email": "sbateupc@theguardian.com",
       "activo": true,
       "avatar": "https://robohash.org/namadipisciporro.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "14",
@@ -190,7 +190,7 @@
       "email": "espurged@typepad.com",
       "activo": true,
       "avatar": "https://robohash.org/excepturiquiadipisci.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "15",
@@ -200,7 +200,7 @@
       "email": "ddoode@feedburner.com",
       "activo": true,
       "avatar": "https://robohash.org/voluptasquaerattenetur.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "16",
@@ -210,7 +210,7 @@
       "email": "lhadekef@geocities.com",
       "activo": false,
       "avatar": "https://robohash.org/aliasaliquamarchitecto.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "17",
@@ -220,7 +220,7 @@
       "email": "sarunowiczg@economist.com",
       "activo": true,
       "avatar": "https://robohash.org/incidunteta.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "18",
@@ -230,7 +230,7 @@
       "email": "kduinbletonh@eepurl.com",
       "activo": true,
       "avatar": "https://robohash.org/etbeataesunt.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "19",
@@ -240,7 +240,7 @@
       "email": "zbackhousei@xrea.com",
       "activo": true,
       "avatar": "https://robohash.org/rerumeaut.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "20",
@@ -250,7 +250,7 @@
       "email": "elonghirstj@census.gov",
       "activo": true,
       "avatar": "https://robohash.org/molestiasnemodolorem.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "21",
@@ -260,7 +260,7 @@
       "email": "gdungeek@home.pl",
       "activo": false,
       "avatar": "https://robohash.org/rerumdelenitiipsam.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "22",
@@ -270,7 +270,7 @@
       "email": "spincottl@princeton.edu",
       "activo": true,
       "avatar": "https://robohash.org/saepeerrordoloremque.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "23",
@@ -280,7 +280,7 @@
       "email": "brobensm@drupal.org",
       "activo": true,
       "avatar": "https://robohash.org/nemopraesentiumanimi.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "24",
@@ -290,7 +290,7 @@
       "email": "tdangln@biglobe.ne.jp",
       "activo": true,
       "avatar": "https://robohash.org/excepturiharumipsam.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "25",
@@ -300,7 +300,7 @@
       "email": "cmcentegarto@epa.gov",
       "activo": true,
       "avatar": "https://robohash.org/odiodoloremqui.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "26",
@@ -310,7 +310,7 @@
       "email": "lsmalridgep@seattletimes.com",
       "activo": false,
       "avatar": "https://robohash.org/temporaaliasesse.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "27",
@@ -320,7 +320,7 @@
       "email": "ddesquesnesq@skyrock.com",
       "activo": true,
       "avatar": "https://robohash.org/molestiaseiuseos.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "28",
@@ -330,7 +330,7 @@
       "email": "knairyr@cbslocal.com",
       "activo": false,
       "avatar": "https://robohash.org/accusantiumreiciendisodio.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "29",
@@ -340,7 +340,7 @@
       "email": "dgreenigs@youtu.be",
       "activo": true,
       "avatar": "https://robohash.org/dignissimosautemex.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     },
     {
       "id": "30",
@@ -350,7 +350,7 @@
       "email": "hgianinottit@exblog.jp",
       "activo": true,
       "avatar": "https://robohash.org/aliquidvoluptatemet.png?size=50x50&set=set1",
-      "cursos": {}
+      "clases": {}
     }
   ],
   "cursos": [

@@ -1,23 +1,24 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ALUMNOS } from '../../models';
-import { telefonoValidator, isValidCUITCUIL } from '../../../../../../shared/validators';
+import { telefonoValidator } from '../../../../../../shared/validators';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../../../../../core/services/auth.service';
 import { Subscription } from 'rxjs';
-import { AlumnosService } from '../../../../../../core/services/alumnos.service';
+import { CURSOSxALUMNO } from '../../models';
 
 @Component({
   selector: 'app-student-dialog',
   templateUrl: './student-dialog.component.html',
-  styleUrl: './student-dialog.component.scss',
+  styleUrls: ['./student-dialog.component.scss'],
 })
-export class StudentDialogComponent {
+export class StudentDialogComponent implements OnInit, OnDestroy {
   studentForm: FormGroup;
-
   isAdmin: boolean | undefined;
   userData: Subscription = new Subscription();
+  cursosDisplayedColumns: string[] = ['id', 'clasesPresente', 'puntos', 'actions'];
+  cursosDataSource: CURSOSxALUMNO[] = [];
 
   constructor(
     private authService: AuthService,
@@ -42,13 +43,13 @@ export class StudentDialogComponent {
         ],
       ],
       telefono: ['', [Validators.required, telefonoValidator()]],
-      avatar: [
-        'https://cdn-icons-png.flaticon.com/128/16/16612.png',
-      ],
-      cursosA: []
+      avatar: ['https://cdn-icons-png.flaticon.com/128/16/16612.png'],
+      cursosA: [[]]
     });
+
     if (editingUser) {
       this.studentForm.patchValue(editingUser);
+      this.cursosDataSource = editingUser.cursosA || [];
     }
   }
 
@@ -72,7 +73,7 @@ export class StudentDialogComponent {
     return this.studentForm.get('avatar');
   }
 
-  get CursosAControl() {
+  get cursosAControl() {
     return this.studentForm.get('cursosA');
   }
 
@@ -91,14 +92,25 @@ export class StudentDialogComponent {
       }
     });
   }
-  
-msg(): void{
-  const clas = (JSON.stringify(this.editingUser?.cursosA))
-  Swal.fire({
-    title: "Clases",
-    text:  clas,
-    icon: "info"
-  });
-}
+
+  ngOnDestroy(): void {
+    this.userData.unsubscribe();
+  }
+
+  onDeleteClase(id: number): void {
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: '¡No podrás deshacer esta acción!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cursosDataSource = this.cursosDataSource.filter((u) => u.id !== id);
+        Swal.fire('¡Eliminado!', 'El Alumno ha sido eliminado.', 'success');
+      }
+    });
+  }
 
 }

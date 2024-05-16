@@ -12,7 +12,7 @@
           <mat-error>{{
             nombreControl?.errors | formFieldValidationErrors
           }}</mat-error>
-        </mat-form-field> 
+        </mat-form-field>
       </div>
       <div class="col-5">
         <mat-form-field class="w-100" appearance="fill">
@@ -49,17 +49,48 @@
           }}</mat-error>
         </mat-form-field>
       </div>
-      
-      <div>
-        <button (click)="msg()" mat-fab extended color="primary">
-          <mat-icon>post_add</mat-icon>
-          Cursos
-        </button>
-      </div>  
 
     </div>
   </form>
 </div>
+
+<div mat-dialog-content>
+  <!-- Tabla de cursos -->
+  <h2 mat-dialog-title>Clases</h2>
+  <table mat-table [dataSource]="cursosDataSource" class="mat-elevation-z8">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let curso"> {{curso.id}} </td>
+    </ng-container>
+
+    <!-- Clases Presente Column -->
+    <ng-container matColumnDef="clasesPresente">
+      <th mat-header-cell *matHeaderCellDef> Clases Presente </th>
+      <td mat-cell *matCellDef="let curso"> {{curso.clasesPresente}} </td>
+    </ng-container>
+
+    <!-- Puntos Column -->
+    <ng-container matColumnDef="puntos">
+      <th mat-header-cell *matHeaderCellDef> Puntos </th>
+      <td mat-cell *matCellDef="let curso"> {{curso.puntos}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <!-- *ngIf="userRoleSession === 'ADMIN'" -->
+        <button (click)="onDeleteClase(element.id)" mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="cursosDisplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: cursosDisplayedColumns;"></tr>
+
+  </table>
+  </div>
 
 <div class="d-flex justify-content-end" mat-dialog-actions>
   <button mat-dialog-close mat-button>Cancelar</button>
