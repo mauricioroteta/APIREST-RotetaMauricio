@@ -8,6 +8,9 @@ import { AuthService } from '../../../../../../core/services/auth.service';
 import { Subscription } from 'rxjs';
 import { CURSOSxALUMNO } from '../../models';
 
+import { clasesService } from '../../../../../../core/services/clases.service';
+import { CLASES } from '../../../clases/models';
+
 @Component({
   selector: 'app-student-dialog',
   templateUrl: './student-dialog.component.html',
@@ -18,13 +21,17 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
   isAdmin: boolean | undefined;
   userData: Subscription = new Subscription();
   cursosDisplayedColumns: string[] = ['id', 'clasesPresente', 'puntos', 'actions'];
+
+  clases: CLASES[] = [];
   cursosDataSource: CURSOSxALUMNO[] = [];
 
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private matDialogRef: MatDialogRef<StudentDialogComponent>,
+    public clasesService: clasesService,
     @Inject(MAT_DIALOG_DATA) private editingUser?: ALUMNOS
+
   ) {
     this.studentForm = this.formBuilder.group({
       nombre: [
@@ -91,6 +98,7 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
         this.isAdmin = true;
       }
     });
+    this.cargarClases();
   }
 
   ngOnDestroy(): void {
@@ -110,6 +118,12 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
         this.cursosDataSource = this.cursosDataSource.filter((u) => u.id !== id);
         Swal.fire('¡Eliminado!', 'El Alumno ha sido eliminado.', 'success');
       }
+    });
+  }
+
+  cargarClases(): void {
+    this.clasesService.getClases().subscribe((clases) => {
+      this.clases = clases;
     });
   }
 
