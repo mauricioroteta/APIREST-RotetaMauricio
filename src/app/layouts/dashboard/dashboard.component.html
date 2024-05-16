@@ -78,7 +78,7 @@
 
          <mat-menu #menuUsuario="matMenu">
           <div *ngIf="userData$ | async as userData">
-            <p class="usuario-info">{{ userData.nombreCompleto }} (Rol {{ userData.rol }})</p>
+            <p class="usuario-info">{{ userData.usuario }} (Rol {{ userData.rol }})</p>
           </div>
             <mat-divider></mat-divider>
             <button mat-menu-item (click)="logout()">

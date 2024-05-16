@@ -50,6 +50,7 @@ export class AuthService {
       localStorage.setItem('user', userData.usuario);
       localStorage.setItem('rol', userData.rol);
       localStorage.setItem('nombre', userData.nombreCompleto);
+      localStorage.setItem('avatar', userData.avatar);
 
     }
     }else{
@@ -78,9 +79,10 @@ export class AuthService {
     const user = localStorage.getItem('user');
     const rol = localStorage.getItem('rol');
     const nombreUsuario = localStorage.getItem('nombre');
+    const avatar = localStorage.getItem('avatar');
     if (user && rol) {
       console.log("usuario = " + user)
-      this.userDataSubject.next({ usuario: user, rol: rol, nombre: nombreUsuario });
+      this.userDataSubject.next({ usuario: user, rol: rol, nombre: nombreUsuario, avatar: avatar });
     }
     return this.userDataSubject.asObservable();
   }
@@ -89,6 +91,7 @@ export class AuthService {
     localStorage.removeItem('user');
     localStorage.removeItem('rol');
     localStorage.removeItem('nombre');
+    localStorage.removeItem('avatar');
     this.isLoggedInSubject.next(false);
     this.router.navigate(['']);
   }

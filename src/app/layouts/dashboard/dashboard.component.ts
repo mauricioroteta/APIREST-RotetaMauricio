@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   isAdmin: boolean = false;
   userName: string | null= '';
   rol: string | null= '';
+  avatar: string | null= '';
 
   isMobile(): boolean {
     return window.innerWidth <= 600;
@@ -40,6 +41,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.isAuthenticated = loggedIn;
       this.userName = localStorage.getItem('nombre');
       this.rol = localStorage.getItem('rol');
+      this.avatar = localStorage.getItem('avatar');
       if (localStorage.getItem('user')) {
         this.isAuthenticated = true;
       }
