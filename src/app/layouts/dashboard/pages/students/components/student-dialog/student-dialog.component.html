@@ -51,8 +51,7 @@
       </div>
 
     </div>
-  </form>
-</div>
+
 
 <div mat-dialog-content>
 
@@ -70,6 +69,18 @@
             </mat-select>
           </mat-form-field>
         </div>
+
+        <div class="col-2">
+          <button
+            (click)="agergarClase()"
+            mat-raised-button
+            color="primary"
+            [disabled]="!isAdmin"
+          >
+            Agregar
+          </button>
+        </div>
+
       </div>
     </mat-card-content>
   </mat-card>
@@ -112,11 +123,12 @@
       </table>
     </mat-card-content>
   </mat-card>
-
 </div>
-
 
 <div class="d-flex justify-content-end" mat-dialog-actions>
   <button mat-dialog-close mat-button>Cancelar</button>
   <button (click)="onSave()" mat-button [disabled]="!isAdmin">Guardar</button>
+</div>
+
+</form>
 </div>

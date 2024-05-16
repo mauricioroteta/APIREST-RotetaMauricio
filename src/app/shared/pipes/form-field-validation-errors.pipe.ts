@@ -11,7 +11,6 @@ export class FormFieldValidationErrorsPipe implements PipeTransform {
   ): unknown {
     if (value) {
       let messages: string[] = [];
-      console.log(value)
       for (const key in value) {
         if (Object.prototype.hasOwnProperty.call(value, key)) {
           const errorDetail = value[key];

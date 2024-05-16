@@ -9,7 +9,8 @@ import { Subscription } from 'rxjs';
 import { CURSOSxALUMNO } from '../../models';
 
 import { clasesService } from '../../../../../../core/services/clases.service';
-import { CLASES } from '../../../clases/models';
+import { CLASES, iClasesAlumno } from '../../../clases/models';
+import { CURSOS } from '../../../cursos/models/index';
 
 @Component({
   selector: 'app-student-dialog',
@@ -23,6 +24,7 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
   cursosDisplayedColumns: string[] = ['id', 'clasesPresente', 'puntos', 'actions'];
 
   clases: CLASES[] = [];
+  ClasesAlumno: iClasesAlumno[] = [];
   cursosDataSource: CURSOSxALUMNO[] = [];
 
   constructor(
@@ -50,8 +52,7 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
         ],
       ],
       telefono: ['', [Validators.required, telefonoValidator()]],
-      avatar: ['https://cdn-icons-png.flaticon.com/128/16/16612.png'],
-      cursosA: [[]]
+      avatar: ['https://cdn-icons-png.flaticon.com/128/16/16612.png']
     });
 
     if (editingUser) {
@@ -125,6 +126,26 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
     this.clasesService.getClases().subscribe((clases) => {
       this.clases = clases;
     });
+  }
+
+  agergarClase(){
+    const claseIdSeleccionada = this.studentForm.get('nombre')?.value;
+    console.log(claseIdSeleccionada);
+    if (claseIdSeleccionada) {
+      if (this.editingUser && this.editingUser.cursosA) {
+        this.editingUser.cursosA.push({
+          id: claseIdSeleccionada,
+          clasesPresente: 0,
+          puntos: 0,
+        });
+        console.log(this.editingUser);
+        this.cursosDataSource = this.editingUser.cursosA;
+      } else {
+        console.error('editingUser o cursosA no está definido');
+      }
+    } else {
+      console.error('No se ha seleccionado ninguna clase');
+    }
   }
 
 }
