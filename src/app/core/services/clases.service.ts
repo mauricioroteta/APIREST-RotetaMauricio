@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, delay, of, pipe } from 'rxjs';
+import { Observable, delay, forkJoin, map, of, pipe } from 'rxjs';
 
 import { CURSOS } from '../../layouts/dashboard/pages/cursos/models';
 import { CursosService } from './cursos.service';
@@ -18,13 +18,13 @@ export class clasesService {
   constructor(private cursosService: CursosService) {}
 
   getClases(): Observable<CLASES[]> {
-    // Agrega el nombre del curso a cada clase
-    const clasesConNombreCurso = this.clases.map(clase => {
-      const curso = this.cursosService.obtenerNombreCurso(clase.idCurso);
-      return { ...clase, NombreCurso: curso || 'Curso no encontrado' };
+    const clasesConNombreCurso$ = this.clases.map(clase => {
+      return this.cursosService.obtenerNombreCurso(clase.idCurso).pipe(
+        map((nombreCurso: any) => ({ ...clase, NombreCurso: nombreCurso }))
+      );
     });
 
-    return of(clasesConNombreCurso).pipe(delay(500));
+    return forkJoin(clasesConNombreCurso$);
   }
 
    getClasesByUser(userID: number): CLASES | undefined {

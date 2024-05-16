@@ -11,41 +11,21 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 
-// export class CursosService {
-
-//   constructor() { }
-
-//   obtenerNombreCurso(idCurso: number): string | null {
-//     // Busca el curso con el ID dado
-//     const cursoEncontrado = cursos.find(curso => curso.id === idCurso);
-//     return cursoEncontrado ? cursoEncontrado.curso : null;
-//   }
-
-//   // getCursos(): Observable<CURSOS[]> {
-//   //   return of(cursos).pipe(delay(500));
-//   // }
-
-//   getCursos(): Promise<CURSOS[]> {
-//     return new Promise(resolve => {
-//       // Simulando una llamada asíncrona
-//       setTimeout(() => {
-//         resolve(cursos);
-//       }, 500);
-//     });
-//   }
-
-// }
-
-
 export class CursosService {
 
   constructor(private httpClient: HttpClient) {}
 
-  obtenerNombreCurso(idCurso: number): string | null {
-    // Busca el curso con el ID dado
-    //const cursoEncontrado = cursos.find(curso => curso.id === idCurso);
-    //return cursoEncontrado ? cursoEncontrado.curso : null;
-    return "Nombre Curso";
+  // obtenerNombreCurso(idCurso: number) {
+  //   // Busca el curso con el ID dado
+  //   //return "Nombre Curso";
+  //   return this.httpClient.get<string>(environment.baseAPIURL + '/cursos/' + idCurso)
+  // }
+
+  obtenerNombreCurso(idCurso: number): Observable<string> {
+    return this.httpClient.get<{ curso: string }>(`${environment.baseAPIURL}/cursos/${idCurso}`)
+      .pipe(
+        map(response => response.curso) // Extraemos el nombre del curso de la respuesta
+      );
   }
 
   getCursos(): Observable<CURSOS[]> {
