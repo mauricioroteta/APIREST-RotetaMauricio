@@ -31,15 +31,15 @@
 
 
 .avatar-container {
-  width: 90px; /* Ajusta el ancho del contenedor según el tamaño de la imagen */
-  height: 90px; /* Ajusta el alto del contenedor según el tamaño de la imagen */
-  position: relative; /* Establece la posición relativa para que el sombreado absoluto se coloque correctamente */
+  max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
+  display: flex;
+  justify-content: center; /* Centra la imagen horizontalmente */
 }
 
 .avatar {
-  width: 50%; /* Ajusta el ancho de la imagen al 100% del contenedor */
-  height: 50%; /* Ajusta el alto de la imagen al 100% del contenedor */
-  border-radius: 50%; /* Hace que la imagen sea redonda */
+  max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
   border: 2px solid rgb(25, 0, 255); /* Añade un borde blanco para mejorar la apariencia */
   cursor: pointer; /* Cambia el cursor a un puntero al pasar el ratón sobre la imagen */
   box-shadow: 0 0 5px 5px rgba(10, 0, 255, 0.5);
@@ -50,7 +50,7 @@
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px; /* Espacio entre las tarjetas */
+  gap: 30px; /* Espacio entre las tarjetas */
   justify-content: center; /* Centrar las tarjetas */
 }
 
@@ -61,15 +61,15 @@
 
 .custom-card {
   width: 100%;
-  max-width: 250px; /* Tamaño máximo de las tarjetas */
-  margin: 10px;
+  max-width: 300px; /* Tamaño máximo de las tarjetas */
+  margin: 5px;
   border-radius: 8px; /* Bordes redondeados */
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Animaciones de transición */
 }
 
 .custom-card:hover {
   transform: translateY(-5px); /* Elevar la tarjeta al pasar el cursor */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el cursor */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada al pasar el cursor */
 }
 
 mat-card-header {
