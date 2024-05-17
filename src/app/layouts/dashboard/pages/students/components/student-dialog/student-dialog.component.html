@@ -53,13 +53,13 @@
     </div>
 
 
-<div mat-dialog-content>
+
 
   <mat-card class="mat-elevation-z4">
     <mat-card-title>Seleccione Clase</mat-card-title>
     <mat-card-content>
       <div class="row">
-        <div class="col-12 col-md-10">
+        <div class="col-10 col-md-10">
           <mat-form-field class="full-width">
             <mat-label>Clases</mat-label>
             <mat-select formControlName="nombre">
@@ -86,44 +86,35 @@
   </mat-card>
 
   <mat-card class="mat-elevation-z4 mt-3">
-    <mat-card-title>Clases</mat-card-title>
     <mat-card-content>
-      <table mat-table [dataSource]="cursosDataSource" class="mat-elevation-z8 full-width">
-
-        <!-- ID Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> ID </th>
-          <td mat-cell *matCellDef="let curso"> {{curso.id}} </td>
-        </ng-container>
-
-        <!-- Clases Presente Column -->
-        <ng-container matColumnDef="clasesPresente">
-          <th mat-header-cell *matHeaderCellDef> Clases Presente </th>
-          <td mat-cell *matCellDef="let curso"> {{curso.clasesPresente}} </td>
-        </ng-container>
-
-        <!-- Puntos Column -->
-        <ng-container matColumnDef="puntos">
-          <th mat-header-cell *matHeaderCellDef> Puntos </th>
-          <td mat-cell *matCellDef="let curso"> {{curso.puntos}} </td>
-        </ng-container>
-
-        <!-- Acciones Column -->
-        <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef> Acciones </th>
-          <td mat-cell *matCellDef="let element">
-            <button (click)="onDeleteClase(element.id)" mat-icon-button color="warn">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="cursosDisplayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: cursosDisplayedColumns;"></tr>
-      </table>
+      <div class="cards-container">
+        <div *ngFor="let curso of cursosDataSource" class="card">
+          <mat-card class="custom-card mat-elevation-z4">
+            <mat-card-header>
+              <mat-card-title>Clase {{ curso.id }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Clases Presente: {{ curso.clasesPresente }}</p>
+              <mat-progress-bar
+                mode="determinate"
+                [value]="(curso.clasesPresente / 10) * 100">
+              </mat-progress-bar>
+              <p>Puntos: {{ curso.puntos }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button (click)="onDeleteClase(curso.id)" mat-icon-button color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
-</div>
+
+
+
+
 
 <div class="d-flex justify-content-end" mat-dialog-actions>
   <button mat-dialog-close mat-button>Cancelar</button>
