@@ -54,15 +54,8 @@
   justify-content: center; /* Centrar las tarjetas */
 }
 
-.card {
-  flex: 1 1 calc(25% - 16px); /* Cuatro tarjetas por fila */
-  box-sizing: border-box;
-}
-
 .custom-card {
   width: 100%;
-  max-width: 300px; /* Tamaño máximo de las tarjetas */
-  margin: 5px;
   border-radius: 8px; /* Bordes redondeados */
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Animaciones de transición */
 }
@@ -74,7 +67,7 @@
 
 mat-card-header {
   background-color: #f5f5f5; /* Color de fondo del encabezado */
-  border-bottom: 1px solid #ddd; /* Borde inferior del encabezado */
+  border-bottom: 1px solid #000000; /* Borde inferior del encabezado */
   border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
 }
 
@@ -97,7 +90,11 @@ mat-card-actions {
   display: flex;
   justify-content: flex-end; /* Alinear el botón a la derecha */
 }
-
+.card {
+  flex: 1; /* La tarjeta toma todo el espacio disponible en el contenedor */
+  height: 200px; /* Establece el alto de la tarjeta en 200px */
+  /* Otros estilos de la tarjeta */
+}
 .progress-container {
   width: 100%;
   background-color: #f0f0f0; /* Fondo de la barra de progreso */

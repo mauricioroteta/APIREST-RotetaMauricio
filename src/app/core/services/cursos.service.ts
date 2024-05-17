@@ -15,12 +15,6 @@ export class CursosService {
 
   constructor(private httpClient: HttpClient) {}
 
-  // obtenerNombreCurso(idCurso: number) {
-  //   // Busca el curso con el ID dado
-  //   //return "Nombre Curso";
-  //   return this.httpClient.get<string>(environment.baseAPIURL + '/cursos/' + idCurso)
-  // }
-
   obtenerNombreCurso(idCurso: number): Observable<string> {
     return this.httpClient.get<{ curso: string }>(`${environment.baseAPIURL}/cursos/${idCurso}`)
       .pipe(
