@@ -46,42 +46,45 @@
 }
 
 
-
+/* app.component.css */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
+  gap: 16px; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centrar las tarjetas */
 }
 
 .card {
-  // Cuatro tarjetas por fila
-  flex: 1 1 calc(25% - 16px);
+  flex: 1 1 calc(25% - 16px); /* Cuatro tarjetas por fila */
   box-sizing: border-box;
 }
 
 .custom-card {
   width: 100%;
-  max-width: 250px;
+  max-width: 250px; /* Tamaño máximo de las tarjetas */
   margin: 10px;
-  border-radius: 8px;
-  // Animaciones de transición
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: 8px; /* Bordes redondeados */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Animaciones de transición */
 }
 
 .custom-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Elevar la tarjeta al pasar el cursor */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el cursor */
 }
 
 mat-card-header {
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #ddd;
-  border-radius: 8px 8px 0 0;
+  background-color: #f5f5f5; /* Color de fondo del encabezado */
+  border-bottom: 1px solid #ddd; /* Borde inferior del encabezado */
+  border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+}
+
+mat-card-title {
+  font-size: 1.2em; /* Tamaño de la fuente del título */
+  font-weight: bold; /* Negrita */
 }
 
 mat-card-content p {
-  margin: 0.5em 0;
+  margin: 0.5em 0; /* Márgenes en el contenido */
 }
 
 mat-card-content {
@@ -92,12 +95,23 @@ mat-card-content {
 
 mat-card-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Alinear el botón a la derecha */
 }
 
-mat-progress-bar {
-  margin-top: 4px;
-  margin-bottom: 8px;
-  height: 8px;
+.progress-container {
+  width: 100%;
+  background-color: #f0f0f0; /* Fondo de la barra de progreso */
   border-radius: 4px;
+  overflow: hidden; /* Asegura que la barra no se salga de los bordes */
+  margin-top: 4px; /* Espacio arriba de la barra de progreso */
+  margin-bottom: 8px; /* Espacio debajo de la barra de progreso */
+  height: 8px; /* Altura de la barra de progreso */
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #3f51b5; /* Color de la barra de progreso */
+  width: 0; /* Inicialmente la barra está a 0% */
+  transition: width 2s ease-out; /* Animar el ancho de la barra en 2 segundos */
+  border-radius: 4px 0 0 4px; /* Bordes redondeados en el lado izquierdo */
 }
