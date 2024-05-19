@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ALUMNOS } from '../../models';
+import { ALUMNOS, ICreateAlumnoPayload } from '../../models';
 import { telefonoValidator } from '../../../../../../shared/validators';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../../../../../core/services/auth.service';
@@ -11,6 +11,8 @@ import { CURSOSxALUMNO } from '../../models';
 import { clasesService } from '../../../../../../core/services/clases.service';
 import { CLASES, iClasesAlumno } from '../../../clases/models';
 import { CURSOS } from '../../../cursos/models/index';
+import { AlumnosService } from '../../../../../../core/services/alumnos.service';
+
 
 @Component({
   selector: 'app-student-dialog',
@@ -25,6 +27,7 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
 
   clases: CLASES[] = [];
   ClasesAlumno: iClasesAlumno[] = [];
+
   cursosDataSource: CURSOSxALUMNO[] = [];
 
   constructor(
@@ -32,10 +35,12 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private matDialogRef: MatDialogRef<StudentDialogComponent>,
     public clasesService: clasesService,
-    @Inject(MAT_DIALOG_DATA) private editingUser?: ALUMNOS
+    public AlumnosService: AlumnosService,
+    @Inject(MAT_DIALOG_DATA) public editingUser: ALUMNOS
 
   ) {
     this.studentForm = this.formBuilder.group({
+      idClass: [],
       nombre: [
         '',
         [Validators.required, Validators.pattern('[a-zA-ZÁÉÍÓÚáéíóúñÑ ]+$')],
@@ -52,17 +57,29 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
         ],
       ],
       telefono: ['', [Validators.required, telefonoValidator()]],
-      avatar: ['https://cdn-icons-png.flaticon.com/128/16/16612.png']
+      avatar: ['https://cdn-icons-png.flaticon.com/128/16/16612.png'],
+      activo: [true],
+      clases: []
     });
 
     if (editingUser) {
       this.studentForm.patchValue(editingUser);
-      this.cursosDataSource = editingUser.cursosA || [];
+      this.cursosDataSource = editingUser.clases || [];
+    }else{
+      this.cursosDataSource = [];
     }
+  }
+
+  get idClassControl() {
+    return this.studentForm.get('idClass');
   }
 
   get nombreControl() {
     return this.studentForm.get('nombre');
+  }
+
+  get ActivoControl() {
+    return this.studentForm.get('activo');
   }
 
   get apellidoControl() {
@@ -81,11 +98,15 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
     return this.studentForm.get('avatar');
   }
 
-  get cursosAControl() {
-    return this.studentForm.get('cursosA');
+  get clasesControl() {
+    return this.studentForm.get('clases');
   }
 
+
   onSave(): void {
+    // if (this.editingUser) {
+    //   this.editingUser.clases = JSON.parse(JSON.stringify(this.cursosDataSource));
+    // }
     if (this.studentForm.invalid) {
       this.studentForm.markAllAsTouched();
     } else {
@@ -106,7 +127,19 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
     this.userData.unsubscribe();
   }
 
-  onDeleteClase(id: number): void {
+  transformToICreateAlumnoPayload(alumno: ALUMNOS): ICreateAlumnoPayload {
+    return {
+      nombre: alumno.nombre,
+      apellido: alumno.apellido,
+      email: alumno.email,  // Transforming 'email' to 'correo'
+      telefono: alumno.telefono,
+      avatar: alumno.avatar,
+      activo: alumno.activo,
+      clases: this.cursosDataSource
+    };
+  }
+
+  onDeleteClase(id: string): void {
     Swal.fire({
       title: '¿Está seguro?',
       text: '¡No podrás deshacer esta acción!',
@@ -116,11 +149,23 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.cursosDataSource = this.cursosDataSource.filter((u) => u.id !== id);
+        console.log(this.cursosDataSource)
+        this.cursosDataSource = this.cursosDataSource.filter(clase => clase.idClass.toString() !== id);
+        //console.log(this.cursosDataSource)
+        //this.editingUser.clases = this.editingUser.clases.filter(clase => clase.idClass.toString() !== id);
+
+
+        this.AlumnosService.updateAlumno(this.editingUser.id.toString(), this.transformToICreateAlumnoPayload(this.editingUser)).subscribe({
+           next: (data) => {
+             this.editingUser = data;
+           },
+         });
+
         Swal.fire('¡Eliminado!', 'El Alumno ha sido eliminado.', 'success');
       }
     });
   }
+
 
   cargarClases(): void {
     this.clasesService.getClases().subscribe((clases) => {
@@ -128,24 +173,68 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
     });
   }
 
-  agergarClase(){
-    const claseIdSeleccionada = this.studentForm.get('nombre')?.value;
-    console.log(claseIdSeleccionada);
+  onAgergarClase(){
+    const claseIdSeleccionada = this.studentForm.get('idClass')?.value;
     if (claseIdSeleccionada) {
-      if (this.editingUser && this.editingUser.cursosA) {
-        this.editingUser.cursosA.push({
-          id: claseIdSeleccionada,
+      if (this.cursosDataSource) {
+        this.cursosDataSource.push({
+          idClass: claseIdSeleccionada,
           clasesPresente: 0,
           puntos: 0,
         });
-        console.log(this.editingUser);
-        this.cursosDataSource = this.editingUser.cursosA;
+
+        this.AlumnosService.updateAlumno(this.editingUser.id.toString(), this.transformToICreateAlumnoPayload(this.editingUser)).subscribe({
+            next: (data) => {
+              this.editingUser = data;
+            },
+        });
+
+        this.editingUser.clases.push({
+          idClass: claseIdSeleccionada,
+          clasesPresente: 0,
+          puntos: 0,
+        });
+
+        console.log(this.editingUser.clases);
       } else {
-        console.error('editingUser o cursosA no está definido');
+        console.error('editingUser o clases no está definido');
       }
     } else {
       console.error('No se ha seleccionado ninguna clase');
     }
   }
+
+  // onAgregarClase(): void {
+  //   const claseIdSeleccionada = this.studentForm.value.nombre;
+
+  //   if (!this.editingUser.clases.includes(claseIdSeleccionada)) {
+  //     const claseSeleccionada = this.clases.find(
+  //       (clase) => clase.id === claseIdSeleccionada
+  //     );
+  //     if (claseSeleccionada) {
+  //       this.editingUser.clases.push(claseIdSeleccionada);
+  //       this.editingUser
+  //       this.AlumnosService.updateAlumno(this.editingUser.id, this.editingUser)
+  //         .subscribe({
+  //           next: (data) => {
+  //             this.editingUser = data;
+  //           },
+  //           error: (error) => {
+  //             Swal.fire({
+  //               title: 'Error al agregar la clase al alumno: ' + error,
+  //               icon: 'error',
+  //             });
+  //           },
+  //         });
+  //     }
+  //   } else {
+  //     Swal.fire({
+  //       title: 'La clase seleccionada ya está agregada al alumno.',
+  //       icon: 'warning',
+  //     });
+  //   }
+  // }
+
+
 
 }

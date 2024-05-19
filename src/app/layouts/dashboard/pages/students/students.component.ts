@@ -1,12 +1,13 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { ALUMNOS } from './models';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { StudentDialogComponent } from './components/student-dialog/student-dialog.component';
 import Swal from 'sweetalert2';
 import { AlumnosService } from '../../../../core/services/alumnos.service';
 
 import { AuthService } from '../../../../core/services/auth.service';
 import { Subscription } from 'rxjs';
+import { CLASES } from '../clases/models/index';
 
 @Component({
   selector: 'app-students',
@@ -21,6 +22,7 @@ export class StudentsComponent {
     'apellido',
     'telefono',
     'email',
+    'activo',
     'actions'
   ];
 
@@ -31,7 +33,8 @@ export class StudentsComponent {
 
   students: ALUMNOS[] = [];
 
-  constructor(private matDialog: MatDialog, private AlumnosService: AlumnosService, private authService: AuthService,) {}
+  constructor(private matDialog: MatDialog,
+    private AlumnosService: AlumnosService, private authService: AuthService,) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -40,6 +43,20 @@ export class StudentsComponent {
         this.isAdmin = true;
       }
     });
+    this.AlumnosService.getAlumnos().subscribe({
+      next: (students) => {
+        this.students = students;
+      },
+      error: () => {
+        Swal.fire('Error', 'Ocurrio un error', 'error');
+      },
+      complete: () => {
+        this.loading = false;
+      }
+    })
+  }
+
+  getAlumnos(): void {
     this.AlumnosService.getAlumnos().subscribe({
       next: (students) => {
         this.students = students;
@@ -63,13 +80,20 @@ export class StudentsComponent {
         next: (result) => {
           if (result) {
             if (editingUser) {
-              this.students = this.students.map((u) =>
-                u.id === editingUser.id ? { ...u, ...result } : u
-              );
+              this.AlumnosService.updateAlumno(editingUser.id, result).subscribe({
+                next: (data) => {
+                  this.students = this.students.map(editingUser => editingUser.id === editingUser.id ? data : editingUser);
+                  this.getAlumnos();
+                },
+              });
             } else {
-              result.id = new Date().getTime().toString().substring(0, 3);
-              result.createAt = new Date();
-              this.students = [...this.students, result];
+              this.AlumnosService.createAlumno(result).subscribe({
+                next: (data) => {
+                  data.clases = []
+                  this.students.push(data);
+                  this.getAlumnos();
+                },
+              });
             }
           }
         },
@@ -86,10 +110,20 @@ export class StudentsComponent {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.students = this.students.filter((u) => u.id !== id);
+        //this.students = this.students.filter((u) => u.id !== id);
+
+        this.AlumnosService.deleteAlumno(id.toString()).subscribe((data) => {
+          Swal.fire({
+            title: 'Alumno Borrado',
+            icon: 'success',
+          });
+        });
+
         Swal.fire('¡Eliminado!', 'El Alumno ha sido eliminado.', 'success');
       }
+      this.getAlumnos();
     });
+
   }
 
   getPageNumbers(): number[] {

@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import {MatCalendar, MatDatepickerModule} from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-errors.pipe';
 
@@ -25,7 +26,8 @@ import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-err
     ReactiveFormsModule,
     MatIconModule,
     FormFieldValidationErrorsPipe,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatCheckboxModule
   ],
 })
 export class SharedModule {}

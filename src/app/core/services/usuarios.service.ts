@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, delay, of, pipe } from 'rxjs';
-import { USUARIOS } from '../../layouts/dashboard/pages/users/models';
+import { USUARIOS, CreateUSUARIOPayload } from '../../layouts/dashboard/pages/users/models';
 import UsersJson from '../../../assets/users.json';
 
 const users: USUARIOS[] = UsersJson;
