@@ -1,5 +1,5 @@
 export interface iClasesAlumno {
-  id: number;
+  id: string;
   clasesPresente: number;
   puntos: number;
 }

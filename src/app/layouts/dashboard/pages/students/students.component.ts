@@ -80,6 +80,7 @@ export class StudentsComponent {
         next: (result) => {
           if (result) {
             if (editingUser) {
+              result.clases = editingUser.clases;
               this.AlumnosService.updateAlumno(editingUser.id, result).subscribe({
                 next: (data) => {
                   this.students = this.students.map(editingUser => editingUser.id === editingUser.id ? data : editingUser);

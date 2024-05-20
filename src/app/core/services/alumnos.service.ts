@@ -18,6 +18,7 @@ export class AlumnosService {
   }
 
   createAlumno(payload: ICreateAlumnoPayload) {
+
     return this.httpClient.post<ALUMNOS>(
       environment.baseAPIURL + '/alumnos',
       payload
@@ -31,8 +32,7 @@ export class AlumnosService {
   }
 
   updateAlumno(id: string, payload: ICreateAlumnoPayload) {
-    console.log("servicio")
-    console.log(payload)
+
     return this.httpClient.put<ALUMNOS>(
       environment.baseAPIURL + '/alumnos/' + id,
       payload

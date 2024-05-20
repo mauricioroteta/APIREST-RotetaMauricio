@@ -29,6 +29,7 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
   ClasesAlumno: iClasesAlumno[] = [];
 
   cursosDataSource: CURSOSxALUMNO[] = [];
+  IDClass: number = 1;
 
   constructor(
     private authService: AuthService,
@@ -40,7 +41,6 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
 
   ) {
     this.studentForm = this.formBuilder.group({
-      idClass: [],
       nombre: [
         '',
         [Validators.required, Validators.pattern('[a-zA-ZÁÉÍÓÚáéíóúñÑ ]+$')],
@@ -68,10 +68,6 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
     }else{
       this.cursosDataSource = [];
     }
-  }
-
-  get idClassControl() {
-    return this.studentForm.get('idClass');
   }
 
   get nombreControl() {
@@ -149,21 +145,26 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log(this.cursosDataSource)
+        //console.log(this.cursosDataSource)
         this.cursosDataSource = this.cursosDataSource.filter(clase => clase.idClass.toString() !== id);
         //console.log(this.cursosDataSource)
-        //this.editingUser.clases = this.editingUser.clases.filter(clase => clase.idClass.toString() !== id);
+        this.editingUser.clases = this.editingUser.clases.filter(clase => clase.idClass.toString() !== id);
+        this.editingUser.clases = this.cursosDataSource;
 
-
-        this.AlumnosService.updateAlumno(this.editingUser.id.toString(), this.transformToICreateAlumnoPayload(this.editingUser)).subscribe({
-           next: (data) => {
-             this.editingUser = data;
-           },
-         });
-
+         this.AlumnosService.updateAlumno(this.editingUser.id.toString(), this.transformToICreateAlumnoPayload(this.editingUser)).subscribe({
+            next: (data) => {
+              this.editingUser = data;
+            },
+          });
+        this.cargarClases();
         Swal.fire('¡Eliminado!', 'El Alumno ha sido eliminado.', 'success');
       }
     });
+  }
+
+  onSeleccionarClase(event: any): void {
+    this.IDClass = event.value;
+    console.log('Clase seleccionada ID:', this.IDClass);
   }
 
 
@@ -174,7 +175,7 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
   }
 
   onAgergarClase(){
-    const claseIdSeleccionada = this.studentForm.get('idClass')?.value;
+    const claseIdSeleccionada = this.IDClass.toString();
     if (claseIdSeleccionada) {
       if (this.cursosDataSource) {
         this.cursosDataSource.push({
@@ -189,12 +190,8 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
             },
         });
 
-        this.editingUser.clases.push({
-          idClass: claseIdSeleccionada,
-          clasesPresente: 0,
-          puntos: 0,
-        });
-
+        //his.cargarClases();
+        this.editingUser.clases = this.cursosDataSource;
         console.log(this.editingUser.clases);
       } else {
         console.error('editingUser o clases no está definido');

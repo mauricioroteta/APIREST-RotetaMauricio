@@ -39,7 +39,7 @@
   ],
   "alumnos": [
     {
-      "nombre": "Maximilianow",
+      "nombre": "Maximiliano",
       "apellido": "Glendzere",
       "email": "eww@ee.com",
       "telefono": "2983507503",
@@ -47,17 +47,7 @@
       "activo": true,
       "clases": [
         {
-          "idClass": 1,
-          "clasesPresente": 0,
-          "puntos": 0
-        },
-        {
-          "idClass": 2,
-          "clasesPresente": 0,
-          "puntos": 0
-        },
-        {
-          "idClass": 3,
+          "idClass": "1",
           "clasesPresente": 0,
           "puntos": 0
         }
@@ -144,14 +134,25 @@
       "id": "5"
     },
     {
-      "id": "6",
       "nombre": "Margette",
       "apellido": "Feilden",
-      "telefono": "2983507503",
       "email": "mfeilden5@dailymotion.com",
-      "activo": false,
+      "telefono": "2983507503",
       "avatar": "https://robohash.org/occaecatietomnis.png?size=50x50&set=set1",
-      "clases": {}
+      "activo": false,
+      "clases": [
+        {
+          "idClass": "1",
+          "clasesPresente": 0,
+          "puntos": 0
+        },
+        {
+          "idClass": "2",
+          "clasesPresente": 0,
+          "puntos": 0
+        }
+      ],
+      "id": "6"
     },
     {
       "id": "7",
@@ -161,7 +162,7 @@
       "email": "mfilippello6@hao123.com",
       "activo": true,
       "avatar": "https://robohash.org/iddoloremet.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "8",
@@ -171,7 +172,7 @@
       "email": "sleeburn7@upenn.edu",
       "activo": true,
       "avatar": "https://robohash.org/velpossimusenim.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "9",
@@ -181,17 +182,23 @@
       "email": "dclemendet8@rakuten.co.jp",
       "activo": true,
       "avatar": "https://robohash.org/possimusnisimolestiae.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
-      "id": "10",
       "nombre": "Millisent",
       "apellido": "Dufty",
-      "telefono": "2983507503",
       "email": "mdufty9@bloglines.com",
-      "activo": true,
+      "telefono": "2983507503",
       "avatar": "https://robohash.org/autevenietrerum.png?size=50x50&set=set1",
-      "clases": {}
+      "activo": true,
+      "clases": [
+        {
+          "idClass": "1",
+          "clasesPresente": 0,
+          "puntos": 0
+        }
+      ],
+      "id": "10"
     },
     {
       "id": "11",
@@ -201,7 +208,7 @@
       "email": "lgeorgia@shinystat.com",
       "activo": true,
       "avatar": "https://robohash.org/voluptatesexplicaboquis.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "12",
@@ -211,7 +218,7 @@
       "email": "ihoundsomb@gizmodo.com",
       "activo": false,
       "avatar": "https://robohash.org/perferendisametnulla.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "13",
@@ -221,7 +228,7 @@
       "email": "sbateupc@theguardian.com",
       "activo": true,
       "avatar": "https://robohash.org/namadipisciporro.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "14",
@@ -231,7 +238,7 @@
       "email": "espurged@typepad.com",
       "activo": true,
       "avatar": "https://robohash.org/excepturiquiadipisci.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "15",
@@ -241,7 +248,7 @@
       "email": "ddoode@feedburner.com",
       "activo": true,
       "avatar": "https://robohash.org/voluptasquaerattenetur.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "16",
@@ -251,7 +258,7 @@
       "email": "lhadekef@geocities.com",
       "activo": false,
       "avatar": "https://robohash.org/aliasaliquamarchitecto.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "17",
@@ -261,7 +268,7 @@
       "email": "sarunowiczg@economist.com",
       "activo": true,
       "avatar": "https://robohash.org/incidunteta.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "18",
@@ -271,7 +278,7 @@
       "email": "kduinbletonh@eepurl.com",
       "activo": true,
       "avatar": "https://robohash.org/etbeataesunt.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "19",
@@ -281,7 +288,7 @@
       "email": "zbackhousei@xrea.com",
       "activo": true,
       "avatar": "https://robohash.org/rerumeaut.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "20",
@@ -291,7 +298,7 @@
       "email": "elonghirstj@census.gov",
       "activo": true,
       "avatar": "https://robohash.org/molestiasnemodolorem.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "21",
@@ -301,7 +308,7 @@
       "email": "gdungeek@home.pl",
       "activo": false,
       "avatar": "https://robohash.org/rerumdelenitiipsam.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "22",
@@ -311,7 +318,7 @@
       "email": "spincottl@princeton.edu",
       "activo": true,
       "avatar": "https://robohash.org/saepeerrordoloremque.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "23",
@@ -321,7 +328,7 @@
       "email": "brobensm@drupal.org",
       "activo": true,
       "avatar": "https://robohash.org/nemopraesentiumanimi.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "24",
@@ -331,7 +338,7 @@
       "email": "tdangln@biglobe.ne.jp",
       "activo": true,
       "avatar": "https://robohash.org/excepturiharumipsam.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "id": "25",
@@ -341,7 +348,7 @@
       "email": "cmcentegarto@epa.gov",
       "activo": true,
       "avatar": "https://robohash.org/odiodoloremqui.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "nombre": "Lisette",
@@ -360,7 +367,7 @@
       "email": "ddesquesnesq@skyrock.com",
       "activo": true,
       "avatar": "https://robohash.org/molestiaseiuseos.png?size=50x50&set=set1",
-      "clases": {}
+      "clases": []
     },
     {
       "nombre": "Karylinee",
@@ -369,19 +376,64 @@
       "telefono": "2983507503",
       "avatar": "https://robohash.org/accusantiumreiciendisodio.png?size=50x50&set=set1",
       "activo": true,
-      "clases": {},
+      "clases": [],
       "id": "28"
     },
     {
-      "idClass": 1,
-      "nombre": "dddddddddd",
-      "apellido": "dddddddddd",
-      "email": "dddddddddddd@ddd.dd",
-      "telefono": "111111111",
+      "id": "b9b7",
+      "nombre": "aaaaaaaaa",
+      "apellido": "aaaaaaaa",
+      "email": "aaaa@aaa.aa",
+      "telefono": "22222222",
+      "avatar": "https://cdn-icons-png.flaticon.com/128/16/16612.png",
+      "activo": true,
+      "clases": null
+    },
+    {
+      "id": "01db",
+      "nombre": "rrrr",
+      "apellido": "rrr",
+      "email": "rrrr@rrr.rr",
+      "telefono": "313213213",
+      "avatar": "https://cdn-icons-png.flaticon.com/128/16/16612.png",
+      "activo": true,
+      "clases": null
+    },
+    {
+      "id": "93b5",
+      "nombre": "eeee",
+      "apellido": "eeeee",
+      "email": "eee@eee.eee",
+      "telefono": "555555555",
+      "avatar": "https://cdn-icons-png.flaticon.com/128/16/16612.png",
+      "activo": true,
+      "clases": null
+    },
+    {
+      "nombre": "dddd",
+      "apellido": "dddd",
+      "email": "ddd@ddd.dee",
+      "telefono": "54564545646",
       "avatar": "https://cdn-icons-png.flaticon.com/128/16/16612.png",
       "activo": true,
       "clases": null,
-      "id": "1e45"
+      "id": "3eb0"
+    },
+    {
+      "nombre": "ddddddddddddddffff",
+      "apellido": "dddddddd",
+      "email": "ddddd@dddd.ddddd",
+      "telefono": "55555555555",
+      "avatar": "https://cdn-icons-png.flaticon.com/128/16/16612.png",
+      "activo": true,
+      "clases": [
+        {
+          "idClass": "2",
+          "clasesPresente": 0,
+          "puntos": 0
+        }
+      ],
+      "id": "390b"
     }
   ],
   "cursos": [

@@ -54,7 +54,7 @@
       <div class="col-10 col-md-10">
         <mat-form-field class="full-width">
           <mat-label>Clases</mat-label>
-          <mat-select formControlName="idClass">
+          <mat-select (selectionChange)="onSeleccionarClase($event)">
             <mat-option *ngFor="let clase of clases" [value]="clase.id">
               {{ clase.id }} - Fecha: {{ clase.fechaIni }} - Horario: {{ clase.horaIni }} - {{ clase.horaFin }}
             </mat-option>
