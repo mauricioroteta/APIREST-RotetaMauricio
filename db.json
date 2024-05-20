@@ -50,18 +50,29 @@
           "idClass": "1",
           "clasesPresente": 0,
           "puntos": 0
+        },
+        {
+          "idClass": "2",
+          "clasesPresente": 0,
+          "puntos": 0
         }
       ],
       "id": "1"
     },
     {
-      "nombre": "Clementiusesw",
+      "nombre": "Clementius",
       "apellido": "Norville",
       "email": "cnorville1@answers.com",
       "telefono": "2983507503",
       "avatar": "https://robohash.org/providentverocorrupti.png?size=50x50&set=set1",
       "activo": true,
-      "clases": null,
+      "clases": [
+        {
+          "idClass": "1",
+          "clasesPresente": 0,
+          "puntos": 0
+        }
+      ],
       "id": "2"
     },
     {
