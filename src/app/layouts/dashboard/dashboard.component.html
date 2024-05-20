@@ -46,15 +46,22 @@
         <mat-icon>people</mat-icon>
         Usuarios
       </button>
-        <button mat-raised-button routerLink="/users"  id="botonUsuarios" class="boton-con-efecto" *ngIf="isMobile() && isAdmin">
+      <button mat-raised-button routerLink="/users"  id="botonUsuarios" class="boton-con-efecto" *ngIf="isMobile() && isAdmin">
           <mat-icon>people</mat-icon>
         </button>
-
-
+        <button mat-raised-button routerLink="/users"  id="botonUsuarios" class="boton-con-efecto">
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <mat-icon>brightness_5</mat-icon>
+                
+              <mat-slide-toggle (change)="onDarkModeSwitched($event)"></mat-slide-toggle>
+              <mat-icon>brightness_2</mat-icon>
+            </div>
+      </button>
     </div>
-    <span>
-      <mat-slide-toggle (change)="onDarkModeSwitched($event)">Dark Mode</mat-slide-toggle>
-    </span>
+
+
+
+
     </mat-drawer>
     <!-- SIDEBAR -->
 

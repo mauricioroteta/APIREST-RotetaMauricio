@@ -12,6 +12,7 @@ import {MatCalendar, MatDatepickerModule} from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-errors.pipe';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [FormFieldValidationErrorsPipe],
@@ -27,7 +28,8 @@ import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-err
     MatIconModule,
     FormFieldValidationErrorsPipe,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule
   ],
 })
 export class SharedModule {}
