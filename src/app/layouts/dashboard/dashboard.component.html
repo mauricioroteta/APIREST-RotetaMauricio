@@ -50,8 +50,11 @@
           <mat-icon>people</mat-icon>
         </button>
 
-    </div>
 
+    </div>
+    <span>
+      <mat-slide-toggle (change)="onDarkModeSwitched($event)">Dark Mode</mat-slide-toggle>
+    </span>
     </mat-drawer>
     <!-- SIDEBAR -->
 
@@ -67,6 +70,7 @@
         >
           <mat-icon>menu</mat-icon>
         </button>
+
         <span appTamano20>TechSchool {{ titulo }}</span>
 
         <div class="contenedor-imagen" [matMenuTriggerFor]="menuUsuario">

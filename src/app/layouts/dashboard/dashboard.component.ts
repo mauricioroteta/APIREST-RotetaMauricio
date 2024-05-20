@@ -1,6 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, EventEmitter, Output, inject } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { MatSlideToggleChange, MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter, map } from 'rxjs';
+import { filter, map, shareReplay  } from 'rxjs';
 import { Subscription, Observable } from 'rxjs';
 import { AuthService } from '../../core/services/auth.service';
 import { UsuarioRol } from './pages/users/models';
@@ -31,6 +33,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
   userName: string | null= '';
   rol: string | null= '';
   avatar: string | null= '';
+
+
+  @Output() readonly darkModeSwitched = new EventEmitter<boolean>();
+
+  private breakpointObserver = inject(BreakpointObserver);
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+
+  onDarkModeSwitched({checked}: MatSlideToggleChange) {
+    this.darkModeSwitched.emit(checked);
+  }
+
 
   isMobile(): boolean {
     return window.innerWidth <= 600;
