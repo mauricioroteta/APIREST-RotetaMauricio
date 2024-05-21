@@ -32,7 +32,6 @@ export class ClasesComponent {
 
   constructor(private matDialog: MatDialog, private clasesService: clasesService, private authService: AuthService) {}
 
-  // Implementacion con Observable
   ngOnInit(): void {
     this.loading = true;
     this.userData = this.authService.getUserData().subscribe((userData) => {
@@ -64,12 +63,10 @@ export class ClasesComponent {
         next: (result) => {
           if (result) {
             if (editingUser) {
-              // ACTUALIZAR EL USUARIO EN EL ARRAY
               this.clases = this.clases.map((u) =>
               u.id === editingUser.id ? { ...u, ...result } : u
               );
             } else {
-              // LOGICA DE CREAR EL USUARIO
               result.id = new Date().getTime().toString().substring(0, 3);
               result.createAt = new Date();
               this.clases = [...this.clases, result];
@@ -82,7 +79,7 @@ export class ClasesComponent {
   onDeleteUser(id: number): void {
     Swal.fire({
       title: '¿Está seguro?',
-      text: '¡No podrás deshacer esta acción!',
+      text: 'El registro se eliminara permanentemente',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Eliminar',
@@ -90,7 +87,7 @@ export class ClasesComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         this.clases = this.clases.filter((u) => u.id !== id);
-        Swal.fire('¡Eliminado!', 'El Clase ha sido eliminado.', 'success');
+        Swal.fire('¡Eliminado!', 'El Clase ha sido eliminada.', 'success');
       }
     });
   }

@@ -8,6 +8,8 @@ import { AuthService } from '../../core/services/auth.service';
 import { UsuarioRol } from './pages/users/models';
 import { DataSource } from '@angular/cdk/collections';
 import { LoginModule } from '../login/login.module';
+import { authIsLogin, authUserLogin, authRolLogin, authAvatarLogin } from '../../store/auth.selectors';
+import { Store } from '@ngrx/store';
 
 interface UserData {
   usuario: string;
@@ -34,6 +36,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   rol: string | null= '';
   avatar: string | null= '';
 
+  isLogin$: Observable<boolean>;
+  userLogin$: Observable<string | null>;
+  rolLogin$: Observable<string | null>;
+  AvatarLogin$: Observable<string | null>;
+
 
   @Output() readonly darkModeSwitched = new EventEmitter<boolean>();
 
@@ -54,19 +61,27 @@ export class DashboardComponent implements OnInit, OnDestroy {
     return window.innerWidth <= 600;
   }
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private authService: AuthService) {
-    this.authSubscription = this.authService.isLoggedIn().subscribe((loggedIn: boolean) => {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private authService: AuthService,
+    private store: Store
+  ) {
+      this.isLogin$ = this.store.select(authIsLogin);
+      this.userLogin$ = this.store.select(authUserLogin);
+      this.rolLogin$ = this.store.select(authRolLogin);
+      this.AvatarLogin$ = this.store.select(authAvatarLogin);
+
+      this.authSubscription = this.authService.isLoggedIn().subscribe((loggedIn: boolean) => {
       this.isAuthenticated = loggedIn;
       this.userName = localStorage.getItem('nombre');
       this.rol = localStorage.getItem('rol');
       this.avatar = localStorage.getItem('avatar');
+
       if (localStorage.getItem('user')) {
         this.isAuthenticated = true;
       }
-      if (loggedIn || this.isAuthenticated) {
-        this.userData$ = this.authService.getUserData();
-        this.router.navigate(['/home']);
-      }
+      // if (loggedIn || this.isAuthenticated) {
+      //   this.userData? = this.authService.getUserData();
+      //   this.router.navigate(['/home']);
+      // }
     });
   }
 

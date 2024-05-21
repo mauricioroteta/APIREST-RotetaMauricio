@@ -138,7 +138,7 @@ export class StudentDialogComponent implements OnInit, OnDestroy {
   onDeleteClase(id: string): void {
     Swal.fire({
       title: '¿Está seguro?',
-      text: '¡No podrás deshacer esta acción!',
+      text: 'El registro se eliminara permanentemente',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Eliminar',

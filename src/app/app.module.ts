@@ -10,9 +10,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Input, isDevMode } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { authReducer } from './store/auth.reducer';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,11 @@ import { RouterOutlet } from '@angular/router';
     RouterOutlet,
     DashboardModule,
 
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ auth: authReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([]),
+
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [
     provideAnimationsAsync()

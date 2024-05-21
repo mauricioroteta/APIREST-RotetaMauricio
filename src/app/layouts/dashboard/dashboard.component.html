@@ -81,25 +81,24 @@
         <span appTamano20>TechSchool {{ titulo }}</span>
 
         <div class="contenedor-imagen" [matMenuTriggerFor]="menuUsuario">
-        <div *ngIf="isAuthenticated">
-          <div *ngIf="userData$ | async as userData">
-            <img class="imagen-usuario" [src]="userData.avatar" alt="Usuario"/>
+          <div *ngIf="(isLogin$ | async)">
+            <img class="imagen-usuario" [src]=this.AvatarLogin$ alt="Usuario"/>
           </div>
-        </div>
+
 
          <mat-menu #menuUsuario="matMenu">
-          <div *ngIf="userData$ | async as userData">
-            <p class="usuario-info">{{ userData.usuario }} (Rol {{ userData.rol }})</p>
+          <div *ngIf="(isLogin$ | async)">
+            <p class="usuario-info">{{ this.userLogin$ | async}} ({{ this.rolLogin$ | async}})</p>
           </div>
             <mat-divider></mat-divider>
             <button mat-menu-item (click)="logout()">
-              <mat-icon>person_edit</mat-icon> <!-- Icono para cerrar sesión -->
-              <span>Ver Perfil</span> <!-- Texto del botón -->
+              <mat-icon>person_edit</mat-icon>
+              <span>Ver Perfil</span>
             </button>
             <mat-divider></mat-divider>
             <button mat-menu-item (click)="logout()">
-              <mat-icon>exit_to_app</mat-icon> <!-- Icono para cerrar sesión -->
-              <span>Cerrar sesión</span> <!-- Texto del botón -->
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Cerrar sesión</span>
             </button>
           </mat-menu>
 

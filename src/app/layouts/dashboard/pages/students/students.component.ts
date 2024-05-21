@@ -104,7 +104,7 @@ export class StudentsComponent {
   onDeleteUser(id: number): void {
     Swal.fire({
       title: '¿Está seguro?',
-      text: '¡No podrás deshacer esta acción!',
+      text: 'El registro se eliminara permanentemente',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Eliminar',
